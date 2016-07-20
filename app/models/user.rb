@@ -39,7 +39,8 @@ class User < ActiveRecord::Base
   end
 
   def unhave(item)
-    haves.find_by(item_id: item.id).destroy
+    ownership = haves.find_by(item_id: item.id)
+    ownership.destroy if ownership.present?
   end
 
   def have?(item)
@@ -51,10 +52,11 @@ class User < ActiveRecord::Base
   end
 
   def unwant(item)
-    want.find_by(item_id: item.id).destroy
+    ownership = wants.find_by(item_id: item.id)
+    ownership.destroy if ownership.present?
   end
-
+  
   def want?(item)
-    wants_items.include?(item)
+    want_items.include?(item)
   end
 end
