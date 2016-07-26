@@ -21,6 +21,12 @@
               <li><%= link_to "ログイン", login_path %></li>
             <% else %>
               <li>
+                <%= link_to "WANT ランキング" , ranking_want_path %>
+              </li>              
+              <li>
+                <%= link_to "HAVE ランキング" , ranking_have_path %>
+              </li>              
+              <li>
                 <%= link_to new_item_path do %>
                   <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                   アイテムを追加
@@ -38,13 +44,6 @@
                   <li>
                     <%= link_to "プロフィール" , current_user  %>
                   </li>
-                  <li role="separator" class="divider"></li>
-                  <li>
-                    <%= link_to "WANT ランキング" , ranking_want_path %>
-                  </li>
-                  <li>
-                    <%= link_to "HAVE ランキング" , ranking_have_path %>
-                  </li>                 
                   <li role="separator" class="divider"></li>
                   <li>
                     <%= link_to "ログアウト", logout_path, method: "delete" %>
